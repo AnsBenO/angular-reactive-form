@@ -1,0 +1,52 @@
+<form (submit)="onSubmit()" [formGroup]="registerForm">
+    <h1 class="title">Registration Form</h1>
+
+    <div class="form-group">
+        <label for="userName">Name</label>
+        <input [class.invalid]="isInvalidInput('userName')" type="text" formControlName="userName" id="userName"
+            placeholder="Enter your name" />
+        <div *ngIf="isInvalidInput('userName')" class="error-message">
+            <div *ngIf="registerForm.get('userName')?.errors?.['required']">
+                User Name is required
+            </div>
+            <div *ngIf="registerForm.get('userName')?.errors?.['minlength']">
+                Your userName must be at least 4 characters long
+            </div>
+            <div *ngIf="registerForm.get('userName')?.errors?.['pattern']">
+                User Name must contain only letters (both uppercase and lowercase), numbers, underscores, and hyphens.
+                User Name must be between 4 and 16 characters in length.
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input [class.invalid]="isInvalidInput('email')" type="text" formControlName="email" id="email"
+            placeholder="Enter your email address" />
+        <div *ngIf="isInvalidInput('email')" class="error-message">
+            <div *ngIf="registerForm.get('email')?.errors?.['required']">
+                Email is required
+            </div>
+            <div *ngIf="registerForm.get('email')?.errors?.['email']">
+                Invalid email format
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input [class.invalid]="isInvalidInput('password')" type="password" formControlName="password" id="password"
+            placeholder="Enter your password" />
+        <div *ngIf="isInvalidInput('password')" class="error-message">
+            <div *ngIf="registerForm.get('password')?.errors?.['required']">
+                Password is required
+            </div>
+        </div>
+    </div>
+
+    <select name="" id="" formControlName="roleId">
+        <option *ngFor="let role of roles" [ngValue]="role.id">{{ role.title }}</option>
+    </select>
+
+    <button type="submit" [disabled]="registerForm.invalid">Register</button>
+</form>
