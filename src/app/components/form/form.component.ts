@@ -1,5 +1,11 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, Validators } from "@angular/forms";
+import {
+    AbstractControl,
+    FormBuilder,
+    FormGroup,
+    Validators,
+} from "@angular/forms";
+import { matchPasswords } from "src/app/validators/matchPasswords.validator";
 
 @Component({
     selector: "app-form",
@@ -7,15 +13,25 @@ import { FormBuilder, Validators } from "@angular/forms";
     styleUrls: ["./form.component.css"],
 })
 export class FormComponent implements OnInit {
-    registerForm = this.fb.group({
-        userName: [
-            "",
-            [Validators.required, Validators.pattern(/^[a-zA-Z0-9_-]{4,16}$/)],
-        ],
-        email: ["", [Validators.required, Validators.email]],
-        password: ["", [Validators.required]],
-        roleId: [1, [Validators.required]],
-    });
+    registerForm = this.fb.group(
+        {
+            userName: [
+                "",
+                [
+                    Validators.required,
+                    Validators.minLength(4),
+                    Validators.pattern(/^[a-zA-Z0-9_-]+$/),
+                ],
+            ],
+            email: ["", [Validators.required, Validators.email]],
+            password: ["", [Validators.required]],
+            confirmPassword: ["", [Validators.required]],
+            roleId: [1, [Validators.required]],
+        },
+        {
+            validators: matchPasswords,
+        }
+    );
 
     isSubmitted = false;
     roles = [
@@ -42,8 +58,14 @@ export class FormComponent implements OnInit {
 
     public isInvalidInput(inputName: string): boolean {
         return this.registerForm.get(inputName)?.invalid &&
-            (this.registerForm.get(inputName)?.dirty ||
-                this.registerForm.get(inputName)?.touched)
+            this.isDirtyOrTouched(inputName)
+            ? true
+            : false;
+    }
+
+    public isDirtyOrTouched(inputName: string): boolean {
+        return this.registerForm.get(inputName)?.dirty ||
+            this.registerForm.get(inputName)?.touched
             ? true
             : false;
     }

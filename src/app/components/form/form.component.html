@@ -14,7 +14,6 @@
             </div>
             <div *ngIf="registerForm.get('userName')?.errors?.['pattern']">
                 User Name must contain only letters (both uppercase and lowercase), numbers, underscores, and hyphens.
-                User Name must be between 4 and 16 characters in length.
             </div>
         </div>
     </div>
@@ -44,9 +43,26 @@
         </div>
     </div>
 
+    <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input [class.invalid]="isInvalidInput('confirmPassword')" type="password" formControlName="confirmPassword"
+            id="confirmPassword" placeholder="Confirm your password">
+        <div class="error-message" *ngIf="isDirtyOrTouched('confirmPassword')">
+            <div *ngIf="registerForm.get('confirmPassword')?.errors?.['required']">
+                you must confirm your password
+            </div>
+            <div
+                *ngIf="registerForm.hasError('passwordmatcherror') && !registerForm.get('confirmPassword')?.errors?.['required']">
+                Passwords do not match
+            </div>
+
+        </div>
+    </div>
+
     <select name="" id="" formControlName="roleId">
         <option *ngFor="let role of roles" [ngValue]="role.id">{{ role.title }}</option>
     </select>
 
     <button type="submit" [disabled]="registerForm.invalid">Register</button>
+
 </form>
