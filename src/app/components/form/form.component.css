@@ -1,10 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Style the form container */
 form {
     max-width: 600px;
     margin: 0 auto;
@@ -19,19 +12,16 @@ h1.title {
     margin-bottom: 40px;
 }
 
-/* Style form groups */
 .form-group {
     margin-bottom: 15px;
 }
 
-/* Style labels */
 label {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
 }
 
-/* Style input fields */
 input[type="text"],
 input[type="email"],
 input[type="tel"],
@@ -50,13 +40,11 @@ input.invalid {
 }
 
 
-/* Style error messages */
 .error-message {
     color: rgb(147, 0, 0);
     font-size: 14px;
 }
 
-/* Style the submit button */
 button[type="submit"] {
     background-color: #007BFF;
     color: #fff;
