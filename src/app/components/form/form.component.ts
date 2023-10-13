@@ -6,6 +6,7 @@ import {
     Validators,
 } from "@angular/forms";
 import { matchPasswords } from "src/app/validators/matchPasswords.validator";
+import { faXmarkCircle } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
     selector: "app-form",
@@ -34,6 +35,7 @@ export class FormComponent implements OnInit {
     );
 
     isSubmitted = false;
+    xMark = faXmarkCircle;
     roles = [
         { id: 1, title: "developer" },
         { id: 2, title: "architect" },

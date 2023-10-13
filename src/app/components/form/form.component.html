@@ -4,8 +4,12 @@
 
         <div class="form-group">
             <label for="userName">Name</label>
-            <input [class.invalid]="isInvalidInput('userName')" type="text" formControlName="userName" id="userName"
-                placeholder="Enter your name" />
+            <div class="input-container">
+                <input [class.invalid]="isInvalidInput('userName')" type="text" formControlName="userName" id="userName"
+                    placeholder="Enter your name" />
+                <fa-icon *ngIf="isInvalidInput('userName')" class="xmark" [icon]="xMark"></fa-icon>
+
+            </div>
             <ng-container *ngIf="isInvalidInput('userName')">
                 <span *ngIf="registerForm.get('userName')?.errors?.['required']">
                     User Name is required
@@ -22,8 +26,12 @@
 
         <div class="form-group">
             <label for="email">Email</label>
-            <input [class.invalid]="isInvalidInput('email')" type="text" formControlName="email" id="email"
-                placeholder="Enter your email address" />
+            <div class="input-container">
+                <input [class.invalid]="isInvalidInput('email')" type="text" formControlName="email" id="email"
+                    placeholder="Enter your email address" />
+                <fa-icon *ngIf="isInvalidInput('email')" [icon]="xMark" class="xmark"></fa-icon>
+
+            </div>
             <ng-container *ngIf="isInvalidInput('email')">
                 <span *ngIf="registerForm.get('email')?.errors?.['required']">
                     Email is required
@@ -36,8 +44,11 @@
 
         <div class="form-group">
             <label for="password">Password</label>
-            <input [class.invalid]="isInvalidInput('password')" type="password" formControlName="password" id="password"
-                placeholder="Enter your password" />
+            <div class="input-container">
+                <input [class.invalid]="isInvalidInput('password')" type="password" formControlName="password"
+                    id="password" placeholder="Enter your password" />
+                <fa-icon *ngIf="isInvalidInput('password')" [icon]="xMark" class="xmark"></fa-icon>
+            </div>
             <ng-container *ngIf="isInvalidInput('password')">
                 <span *ngIf="registerForm.get('password')?.errors?.['required']">
                     Password is required
@@ -47,8 +58,11 @@
 
         <div class="form-group">
             <label for="confirmPassword">Confirm Password</label>
-            <input [class.invalid]="isInvalidInput('confirmPassword')" type="password" formControlName="confirmPassword"
-                id="confirmPassword" placeholder="Confirm your password">
+            <div class="input-container">
+                <input [class.invalid]="isInvalidInput('confirmPassword')" type="password"
+                    formControlName="confirmPassword" id="confirmPassword" placeholder="Confirm your password">
+                <fa-icon *ngIf="isInvalidInput('confirmPassword')" [icon]="xMark" class="xmark"></fa-icon>
+            </div>
             <ng-container *ngIf="isDirtyOrTouched('confirmPassword')">
                 <span *ngIf="registerForm.get('confirmPassword')?.errors?.['required']">
                     Please confirm your password

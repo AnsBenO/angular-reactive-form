@@ -51,6 +51,20 @@ select:focus {
     border-color: #00356e;
 }
 
+.input-container {
+    height: 41px;
+    position: relative;
+}
+
+.xmark {
+    height: 20px;
+    position: absolute;
+    font-size: 20px;
+    color: rgb(147, 0, 0);
+    top: calc(50% - 12px);
+    right: 1%;
+}
+
 input.invalid {
     border: 1px solid rgb(147, 0, 0);
 }
