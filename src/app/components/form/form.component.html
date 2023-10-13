@@ -5,58 +5,58 @@
         <label for="userName">Name</label>
         <input [class.invalid]="isInvalidInput('userName')" type="text" formControlName="userName" id="userName"
             placeholder="Enter your name" />
-        <div *ngIf="isInvalidInput('userName')" class="error-message">
-            <div *ngIf="registerForm.get('userName')?.errors?.['required']">
+        <ng-container *ngIf="isInvalidInput('userName')" class="error-message">
+            <span *ngIf="registerForm.get('userName')?.errors?.['required']">
                 User Name is required
-            </div>
-            <div *ngIf="registerForm.get('userName')?.errors?.['minlength']">
+            </span>
+            <span *ngIf="registerForm.get('userName')?.errors?.['minlength']">
                 Your userName must be at least 4 characters long
-            </div>
-            <div *ngIf="registerForm.get('userName')?.errors?.['pattern']">
+            </span>
+            <span *ngIf="registerForm.get('userName')?.errors?.['pattern']">
                 User Name must contain only letters (both uppercase and lowercase), numbers, underscores, and hyphens.
-            </div>
-        </div>
+            </span>
+        </ng-container>
     </div>
 
     <div class="form-group">
         <label for="email">Email</label>
         <input [class.invalid]="isInvalidInput('email')" type="text" formControlName="email" id="email"
             placeholder="Enter your email address" />
-        <div *ngIf="isInvalidInput('email')" class="error-message">
-            <div *ngIf="registerForm.get('email')?.errors?.['required']">
+        <ng-container *ngIf="isInvalidInput('email')" class="error-message">
+            <span *ngIf="registerForm.get('email')?.errors?.['required']">
                 Email is required
-            </div>
-            <div *ngIf="registerForm.get('email')?.errors?.['email']">
+            </span>
+            <span *ngIf="registerForm.get('email')?.errors?.['email']">
                 Invalid email format
-            </div>
-        </div>
+            </span>
+        </ng-container>
     </div>
 
     <div class="form-group">
         <label for="password">Password</label>
         <input [class.invalid]="isInvalidInput('password')" type="password" formControlName="password" id="password"
             placeholder="Enter your password" />
-        <div *ngIf="isInvalidInput('password')" class="error-message">
-            <div *ngIf="registerForm.get('password')?.errors?.['required']">
+        <ng-container *ngIf="isInvalidInput('password')" class="error-message">
+            <span *ngIf="registerForm.get('password')?.errors?.['required']">
                 Password is required
-            </div>
-        </div>
+            </span>
+        </ng-container>
     </div>
 
     <div class="form-group">
         <label for="confirmPassword">Confirm Password</label>
         <input [class.invalid]="isInvalidInput('confirmPassword')" type="password" formControlName="confirmPassword"
             id="confirmPassword" placeholder="Confirm your password">
-        <div class="error-message" *ngIf="isDirtyOrTouched('confirmPassword')">
-            <div *ngIf="registerForm.get('confirmPassword')?.errors?.['required']">
+        <ng-container class="error-message" *ngIf="isDirtyOrTouched('confirmPassword')">
+            <span *ngIf="registerForm.get('confirmPassword')?.errors?.['required']">
                 you must confirm your password
-            </div>
-            <div
+            </span>
+            <span
                 *ngIf="registerForm.hasError('passwordmatcherror') && !registerForm.get('confirmPassword')?.errors?.['required']">
                 Passwords do not match
-            </div>
+            </span>
 
-        </div>
+        </ng-container>
     </div>
 
     <select name="" id="" formControlName="roleId">
