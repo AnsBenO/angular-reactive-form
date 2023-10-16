@@ -44,9 +44,7 @@ export class FormComponent implements OnInit {
     constructor(private fb: FormBuilder) {}
 
     public ngOnInit(): void {
-        this.registerForm.get("roleId")?.valueChanges.subscribe(roleId => {
-            console.log("SEND API AND UPDATE ROLE", roleId);
-        });
+        this.registerForm.get("roleId")?.valueChanges.subscribe(roleId => {});
     }
 
     public onSubmit(): void {
