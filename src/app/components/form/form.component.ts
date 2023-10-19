@@ -43,9 +43,7 @@ export class FormComponent implements OnInit {
 
     constructor(private fb: FormBuilder) {}
 
-    public ngOnInit(): void {
-        this.registerForm.get("roleId")?.valueChanges.subscribe(roleId => {});
-    }
+    public ngOnInit(): void {}
 
     public onSubmit(): void {
         console.log(
@@ -58,13 +56,13 @@ export class FormComponent implements OnInit {
 
     public isInvalidInput(inputName: string): boolean {
         return this.registerForm.get(inputName)?.invalid &&
-            this.isDirtyOrTouched(inputName)
+            this.isDirtyAndTouched(inputName)
             ? true
             : false;
     }
 
-    public isDirtyOrTouched(inputName: string): boolean {
-        return this.registerForm.get(inputName)?.dirty ||
+    public isDirtyAndTouched(inputName: string): boolean {
+        return this.registerForm.get(inputName)?.dirty &&
             this.registerForm.get(inputName)?.touched
             ? true
             : false;

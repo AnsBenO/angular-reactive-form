@@ -59,11 +59,13 @@
         <div class="form-group">
             <label for="confirmPassword">Confirm Password</label>
             <div class="input-container">
-                <input [class.invalid]="isInvalidInput('confirmPassword')" type="password"
-                    formControlName="confirmPassword" id="confirmPassword" placeholder="Confirm your password">
+                <input
+                    [class.invalid]="isInvalidInput('confirmPassword') || (registerForm.hasError('passwordmatcherror') && isDirtyAndTouched('confirmPassword'))"
+                    type="password" formControlName="confirmPassword" id="confirmPassword"
+                    placeholder="Confirm your password">
                 <fa-icon *ngIf="isInvalidInput('confirmPassword')" [icon]="xMark" class="xmark"></fa-icon>
             </div>
-            <ng-container *ngIf="isDirtyOrTouched('confirmPassword')">
+            <ng-container *ngIf="isDirtyAndTouched('confirmPassword')">
                 <span *ngIf="registerForm.get('confirmPassword')?.errors?.['required']">
                     Please confirm your password
                 </span>
