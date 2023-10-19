@@ -21,7 +21,7 @@ export class FormComponent implements OnInit {
                 [
                     Validators.required,
                     Validators.minLength(4),
-                    Validators.pattern(/^[a-zA-Z0-9_-]+[\s]+$/),
+                    Validators.pattern(/^ *[a-zA-Z0-9_ -]+ *$/),
                 ],
             ],
             email: ["", [Validators.required, Validators.email]],
