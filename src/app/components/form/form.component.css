@@ -36,10 +36,11 @@ select {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #f7f7f7;
-    background-color: #f7f7f7;
+    border: 1px solid #eeeeee;
+    background-color: #eeeeee;
     border-bottom: 2px solid #3c5a7a;
     font-size: 16px;
+    transition: all .1s ease-in-out;
 }
 
 input[type="text"]:focus,
@@ -49,7 +50,8 @@ input[type="password"]:focus,
 input[type="date"]:focus,
 select:focus {
     outline: none;
-    border-color: #00356e;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+
 }
 
 .input-container {
@@ -67,7 +69,6 @@ select:focus {
 }
 
 input.invalid {
-    border: 1px solid #f7f7f7 !important;
     border-bottom: 2px solid rgb(147, 0, 0) !important;
 }
 
