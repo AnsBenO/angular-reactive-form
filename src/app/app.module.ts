@@ -5,9 +5,10 @@ import { AppComponent } from "./app.component";
 import { FormComponent } from "./components/form/form.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import { InputRefDirective } from "./directives/input-ref.directive";
 
 @NgModule({
-    declarations: [AppComponent, FormComponent],
+    declarations: [AppComponent, FormComponent, InputRefDirective],
     imports: [
         BrowserModule,
         FormsModule,
