@@ -1,10 +1,5 @@
-import { Component, OnInit } from "@angular/core";
-import {
-    AbstractControl,
-    FormBuilder,
-    FormGroup,
-    Validators,
-} from "@angular/forms";
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { FormBuilder, FormGroupDirective, Validators } from "@angular/forms";
 import { matchPasswords } from "src/app/validators/matchPasswords.validator";
 import { faXmarkCircle } from "@fortawesome/free-solid-svg-icons";
 
@@ -14,6 +9,9 @@ import { faXmarkCircle } from "@fortawesome/free-solid-svg-icons";
     styleUrls: ["./form.component.css"],
 })
 export class FormComponent implements OnInit {
+    @ViewChild(FormGroupDirective)
+    formDirective!: FormGroupDirective;
+
     registerForm = this.fb.group(
         {
             userName: [
@@ -52,6 +50,7 @@ export class FormComponent implements OnInit {
             this.registerForm.invalid
         );
         this.isSubmitted = true;
+        this.formDirective.resetForm();
     }
 
     public isInvalidInput(inputName: string): boolean {
