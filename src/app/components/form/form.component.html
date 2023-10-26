@@ -45,7 +45,7 @@
         <div class="form-group">
             <label for="password">Password</label>
             <div class="input-container">
-                <input inputRef [class.invalid]="isInvalidInput('password')" type="password" formControlName="password"
+                <input [class.invalid]="isInvalidInput('password')" type="password" formControlName="password"
                     id="password" placeholder="Enter your password" />
                 <fa-icon *ngIf="isInvalidInput('password')" [icon]="xMark" class="xmark"></fa-icon>
             </div>
