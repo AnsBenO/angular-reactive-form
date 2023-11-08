@@ -5,10 +5,10 @@ import { AppComponent } from "./app.component";
 import { FormComponent } from "./components/form/form.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
-import { InputRefDirective } from "./directives/input-ref.directive";
+import { TrimInputDirective } from "./directives/trim-input.directive";
 
 @NgModule({
-    declarations: [AppComponent, FormComponent, InputRefDirective],
+    declarations: [AppComponent, FormComponent, TrimInputDirective],
     imports: [
         BrowserModule,
         FormsModule,

@@ -5,7 +5,7 @@
         <div class="form-group">
             <label for="userName">Name</label>
             <div class="input-container">
-                <input inputRef [class.invalid]="isInvalidInput('userName')" type="text" formControlName="userName"
+                <input trimInput [class.invalid]="isInvalidInput('userName')" type="text" formControlName="userName"
                     id="userName" placeholder="Enter your name" />
                 <fa-icon *ngIf="isInvalidInput('userName')" class="xmark" [icon]="xMark"></fa-icon>
 
@@ -27,8 +27,8 @@
         <div class="form-group">
             <label for="email">Email</label>
             <div class="input-container">
-                <input inputRef [class.invalid]="isInvalidInput('email')" type="text" formControlName="email" id="email"
-                    placeholder="Enter your email address" />
+                <input trimInput [class.invalid]="isInvalidInput('email')" type="text" formControlName="email"
+                    id="email" placeholder="Enter your email address" />
                 <fa-icon *ngIf="isInvalidInput('email')" [icon]="xMark" class="xmark"></fa-icon>
 
             </div>

@@ -1,10 +1,15 @@
-import { Directive } from "@angular/core";
+import { Directive, ElementRef, HostListener } from "@angular/core";
 import { NgControl, ControlValueAccessor } from "@angular/forms";
 
-@Directive({ selector: "[inputRef]" })
-export class InputRefDirective {
-    constructor(private ngControl: NgControl) {
+@Directive({ selector: "[trimInput]" })
+export class TrimInputDirective {
+    constructor(private ngControl: NgControl, private el: ElementRef) {
         trimValueAccessor(ngControl.valueAccessor as ControlValueAccessor);
+    }
+    @HostListener("blur", ["$event.target.value"])
+    onBlur() {
+        const trimmedValue = this.el.nativeElement.value.trim();
+        this.el.nativeElement.value = trimmedValue;
     }
 }
 
