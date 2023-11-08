@@ -25,7 +25,7 @@ export class FormComponent implements OnInit {
             email: ["", [Validators.required, Validators.email]],
             password: ["", [Validators.required]],
             confirmPassword: ["", [Validators.required]],
-            roleId: [1, [Validators.required]],
+            roleId: [null, [Validators.required]],
         },
         {
             validators: matchPasswords,
@@ -35,6 +35,7 @@ export class FormComponent implements OnInit {
     isSubmitted = false;
     xMark = faXmarkCircle;
     roles = [
+        { id: null, title: "Choose a role" },
         { id: 1, title: "developer" },
         { id: 2, title: "architect" },
     ];
