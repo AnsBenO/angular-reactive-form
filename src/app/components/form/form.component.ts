@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, ViewChild } from "@angular/core";
 import { FormBuilder, FormGroupDirective, Validators } from "@angular/forms";
 import { matchPasswords } from "src/app/validators/matchPasswords.validator";
 import { faXmarkCircle } from "@fortawesome/free-solid-svg-icons";
@@ -8,7 +8,7 @@ import { faXmarkCircle } from "@fortawesome/free-solid-svg-icons";
     templateUrl: "./form.component.html",
     styleUrls: ["./form.component.css"],
 })
-export class FormComponent implements OnInit {
+export class FormComponent {
     // ViewChild decorator to access the FormGroupDirective instance,
     // which provides access to the form-related directives and methods.
     @ViewChild(FormGroupDirective)
@@ -43,8 +43,6 @@ export class FormComponent implements OnInit {
     ];
 
     constructor(private fb: FormBuilder) {}
-
-    public ngOnInit(): void {}
 
     public onSubmit(): void {
         console.log(

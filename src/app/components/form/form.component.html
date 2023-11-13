@@ -78,9 +78,14 @@
         </div>
         <div class="form-group">
             <label for="role">Role</label>
-            <select name="role" id="" formControlName="roleId">
+            <select [class.invalid]="isInvalidInput('roleId')" name="role" formControlName="roleId">
                 <option *ngFor="let role of roles" [ngValue]="role.id">{{ role.title }}</option>
             </select>
+            <ng-container *ngIf="isDirtyAndTouched('roleId')">
+                <span *ngIf="registerForm.get('roleId')?.errors?.['required']">
+                    Please select a role
+                </span>
+            </ng-container>
 
         </div>
 
